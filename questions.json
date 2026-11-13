@@ -1,0 +1,111 @@
+{
+  "version": "2.0.0",
+  "project_name": "CHẠM - Board Game Alzheimer",
+  "last_updated": "2026-11-13",
+  "cards": [
+    {
+      "id": "KT-01",
+      "group": "Kiến thức (KT)",
+      "question": "Bệnh Alzheimer là gì?",
+      "options": [
+        "Bệnh lý thần kinh tiến triển, ảnh hưởng đến trí nhớ và nhiều chức năng nhận thức.",
+        "Một dạng sốt virus thông thường ở người trẻ tuổi.",
+        "Sự thiếu hụt tạm thời vitamin nhóm B.",
+        "Hiện tượng lão hóa sinh lý bình thường 100% ai cũng mắc phải."
+      ],
+      "answer": "Bệnh lý thần kinh tiến triển, ảnh hưởng đến trí nhớ và nhiều chức năng nhận thức.",
+      "explanation": "Alzheimer là bệnh lý thần kinh tiến triển mạn tính, là nguyên nhân phổ biến nhất gây sa sút trí tuệ[cite: 10]."
+    },
+    {
+      "id": "GN-01",
+      "group": "Góc nhìn (GN)",
+      "question": "Nếu một người dần quên đi nhiều ký ức, điều đó có làm giảm giá trị và phẩm giá của họ không? Vì sao?",
+      "options": [
+        "Có, vì con người chỉ có giá trị khi còn nhớ rõ mọi thứ.",
+        "Không, phẩm giá con người không phụ thuộc hoàn toàn vào trí nhớ[cite: 14].",
+        "Có, họ sẽ mất toàn bộ quyền công dân.",
+        "Không quan trọng đối với xã hội."
+      ],
+      "answer": "Không, phẩm giá con người không phụ thuộc hoàn toàn vào trí nhớ[cite: 14].",
+      "explanation": "Mỗi cá nhân luôn giữ nguyên vẹn phẩm giá con người bất kể tình trạng trí nhớ hay năng lực nhận thức thay đổi."
+    },
+    {
+      "id": "NC-01",
+      "group": "Nghiên cứu (NC)",
+      "question": "Nhóm bạn được giao nghiên cứu một cơ chế liên quan đến Alzheimer. Hãy chọn một hướng tiếp cận tối ưu và giải thích[cite: 18].",
+      "options": [
+        "Tập trung khảo sát các mảng bám protein bất thường và đám rối sợi thần kinh.",
+        "Bỏ qua nghiên cứu cơ chế vì không có thực tế.",
+        "Chỉ dựa vào cảm tính cá nhân để kết luận.",
+        "Ngừng nghiên cứu và chờ đợi kết quả ngẫu nhiên."
+      ],
+      "answer": "Tập trung khảo sát các mảng bám protein bất thường và đám rối sợi thần kinh.",
+      "explanation": "Nghiên cứu cơ chế sinh học phân tử (như Beta-amyloid và Tau) là nền tảng cốt lõi trong khoa học thần kinh[cite: 18]."
+    },
+    {
+      "id": "CN-01",
+      "group": "Công nghệ (CN)",
+      "question": "Hãy nêu một ứng dụng tiềm năng của Trí tuệ nhân tạo (AI) trong phân tích dữ liệu nghiên cứu Alzheimer và một giới hạn của nó[cite: 20]?",
+      "options": [
+        "AI thay thế hoàn toàn bác sĩ chẩn đoán không cần con người.",
+        "AI hỗ trợ phân tích hình ảnh quét não nhanh chóng, nhưng cần chuyên gia kiểm chứng[cite: 11, 20].",
+        "AI tự động chữa khỏi bệnh cho người mắc.",
+        "AI không có bất kỳ giá trị nào trong y tế."
+      ],
+      "answer": "AI hỗ trợ phân tích hình ảnh quét não nhanh chóng, nhưng cần chuyên gia kiểm chứng[cite: 11, 20].",
+      "explanation": "Công nghệ số và AI đóng vai trò công cụ đắc lực hỗ trợ xử lý dữ liệu lớn, tuy nhiên yếu tố quyết định và chịu trách nhiệm vẫn thuộc về con người[cite: 11, 20]."
+    },
+    {
+      "id": "CS-01",
+      "group": "Chăm sóc - Cộng đồng (CS)",
+      "question": "Gia đình muốn cải thiện không gian sống để người mắc Alzheimer an toàn hơn. Đâu là hai thay đổi phù hợp nhất[cite: 21]?",
+      "options": [
+        "Thay đổi liên tục vị trí đồ đạc để thử thách trí nhớ.",
+        "Lắp đèn đủ sáng, hạn chế vật cản dễ vấp ngã và dán biển chỉ dẫn dễ hiểu[cite: 12, 21].",
+        "Khóa kín cửa phòng hoàn toàn để cách ly.",
+        "Sử dụng không gian tối để người bệnh nghỉ ngơi."
+      ],
+      "answer": "Lắp đèn đủ sáng, hạn chế vật cản dễ vấp ngã và dán biển chỉ dẫn dễ hiểu[cite: 12, 21].",
+      "explanation": "Không gian thân thiện giúp giảm nguy cơ té ngã và hỗ trợ người bệnh tự định hướng tốt hơn trong sinh hoạt hằng ngày[cite: 12, 21]."
+    },
+    {
+      "id": "HT-01",
+      "group": "Hợp tác (HT)",
+      "question": "Chia sẻ tri thức: Hai người chơi cùng phối hợp đề xuất một hoạt động nâng cao nhận thức cộng đồng về Alzheimer[cite: 23].",
+      "options": [
+        "Mỗi người tự làm một mình không cần trao đổi.",
+        "Mỗi bên đóng góp nguồn lực/ý tưởng để xây dựng chiến dịch truyền thông chung[cite: 23].",
+        "Tranh cãi xem ai là người giỏi hơn.",
+        "Hủy bỏ nhiệm vụ hợp tác."
+      ],
+      "answer": "Mỗi bên đóng góp nguồn lực/ý tưởng để xây dựng chiến dịch truyền thông chung[cite: 23].",
+      "explanation": "Hợp tác liên ngành và chia sẻ tri thức giúp tối ưu hóa nguồn lực và lan tỏa thông điệp chính xác đến xã hội[cite: 23]."
+    },
+    {
+      "id": "TC-01",
+      "group": "Thử thách (TC)",
+      "question": "Thiếu hụt nguồn lực: Nhóm của bạn không đủ tài nguyên để triển khai kế hoạch hỗ trợ chăm sóc. Bạn sẽ chọn phương án nào[cite: 25]?",
+      "options": [
+        "Thu hẹp kế hoạch hoặc tìm đối tác/người chơi khác cùng chung tay góp sức[cite: 25].",
+        "Bỏ cuộc hoàn toàn và dừng ván chơi.",
+        "Tự ý gian lận tài nguyên.",
+        "Đổ lỗi cho người bệnh."
+      ],
+      "answer": "Thu hẹp kế hoạch hoặc tìm đối tác/người chơi khác cùng chung tay góp sức[cite: 25].",
+      "explanation": "Tinh thần đồng đội và tìm kiếm mạng lưới hỗ trợ là chìa khóa vượt qua các khủng hoảng về nguồn lực trong thực tế[cite: 25]."
+    },
+    {
+      "id": "TG-01",
+      "group": "Thời gian - Sự kiện (TG)",
+      "question": "Giai đoạn nâng cao nhận thức: Cộng đồng địa phương bắt đầu quan tâm nhiều hơn đến các vấn đề về Alzheimer[cite: 27].",
+      "options": [
+        "Không có sự thay đổi nào diễn ra.",
+        "Cộng đồng gia tăng sự thấu hiểu; nhận thêm điểm thưởng tiến độ nếu chỉ số Cộng đồng đạt yêu cầu[cite: 27].",
+        "Gây áp lực tiêu cực bắt buộc phạt điểm.",
+        "Làm gián đoạn toàn bộ trò chơi."
+      ],
+      "answer": "Cộng đồng gia tăng sự thấu hiểu; nhận thêm điểm thưởng tiến độ nếu chỉ số Cộng đồng đạt yêu cầu[cite: 27].",
+      "explanation": "Sự kiện thời gian mô phỏng sự chuyển dịch nhận thức của xã hội theo từng giai đoạn phát triển của dự án[cite: 27]."
+    }
+  ]
+}

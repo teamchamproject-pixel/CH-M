@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "project_name": "CHẠM - Board Game Alzheimer",
   "cards": [
     {
@@ -66,45 +66,6 @@
       ],
       "answer": "Lắp đèn đủ sáng, hạn chế vật cản dễ vấp ngã và dán biển chỉ dẫn dễ hiểu[cite: 12, 21].",
       "explanation": "Không gian thân thiện giúp giảm nguy cơ té ngã và hỗ trợ người bệnh tự định hướng tốt hơn trong sinh hoạt hằng ngày[cite: 12, 21]."
-    },
-    {
-      "id": "HT-01",
-      "group": "Hợp tác (HT)",
-      "question": "Chia sẻ tri thức: Hai người chơi cùng phối hợp đề xuất một hoạt động nâng cao nhận thức cộng đồng[cite: 23].",
-      "options": [
-        "Mỗi người tự làm một mình không cần trao đổi.",
-        "Mỗi bên đóng góp nguồn lực/ý tưởng để xây dựng chiến dịch truyền thông chung[cite: 23].",
-        "Tranh cãi xem ai là người giỏi hơn.",
-        "Hủy bỏ nhiệm vụ hợp tác."
-      ],
-      "answer": "Mỗi bên đóng góp nguồn lực/ý tưởng để xây dựng chiến dịch truyền thông chung[cite: 23].",
-      "explanation": "Hợp tác liên ngành và chia sẻ tri thức giúp tối ưu hóa nguồn lực và lan tỏa thông điệp chính xác đến xã hội[cite: 23]."
-    },
-    {
-      "id": "TC-01",
-      "group": "Thử thách (TC)",
-      "question": "Thiếu hụt nguồn lực: Nhóm của bạn không đủ tài nguyên để triển khai kế hoạch chăm sóc. Bạn sẽ chọn thế nào[cite: 25]?",
-      "options": [
-        "Thu hẹp kế hoạch hoặc tìm đối tác/người chơi khác cùng chung tay góp sức[cite: 25].",
-        "Bỏ cuộc hoàn toàn và dừng ván chơi.",
-        "Tự ý gian lận tài nguyên.",
-        "Đổ lỗi cho người bệnh."
-      ],
-      "answer": "Thu hẹp kế hoạch hoặc tìm đối tác/người chơi khác cùng chung tay góp sức[cite: 25].",
-      "explanation": "Tinh thần đồng đội và tìm kiếm mạng lưới hỗ trợ là chìa khóa vượt qua khủng hoảng nguồn lực[cite: 25]."
-    },
-    {
-      "id": "TG-01",
-      "group": "Thời gian - Sự kiện (TG)",
-      "question": "Giai đoạn nâng cao nhận thức: Cộng đồng địa phương bắt đầu quan tâm nhiều hơn đến Alzheimer[cite: 27].",
-      "options": [
-        "Không có sự thay đổi nào diễn ra.",
-        "Cộng đồng gia tăng sự thấu hiểu; nhận thêm điểm thưởng tiến độ nếu chỉ số Cộng đồng đạt yêu cầu[cite: 27].",
-        "Gây áp lực tiêu cực bắt buộc phạt điểm.",
-        "Làm gián đoạn toàn bộ trò chơi."
-      ],
-      "answer": "Cộng đồng gia tăng sự thấu hiểu; nhận thêm điểm thưởng tiến độ nếu chỉ số Cộng đồng đạt yêu cầu[cite: 27].",
-      "explanation": "Sự kiện thời gian mô phỏng sự chuyển dịch nhận thức của xã hội theo từng giai đoạn phát triển dự án[cite: 27]."
     }
   ]
 }

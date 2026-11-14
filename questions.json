@@ -1,110 +1,556 @@
-{
-  "version": "2.2.0",
-  "project_name": "CHẠM - Board Game Alzheimer",
-  "cards": [
-    {
-      "id": "KT-01",
-      "group": "Kiến thức (KT)",
-      "question": "Bệnh Alzheimer là gì?",
-      "options": [
-        "Bệnh lý thần kinh tiến triển, ảnh hưởng đến trí nhớ và nhiều chức năng nhận thức.",
-        "Một dạng sốt virus thông thường ở người trẻ tuổi.",
-        "Sự thiếu hụt tạm thời vitamin nhóm B.",
-        "Hiện tượng lão hóa sinh lý bình thường 100% ai cũng mắc phải."
-      ],
-      "answer": "Bệnh lý thần kinh tiến triển, ảnh hưởng đến trí nhớ và nhiều chức năng nhận thức.",
-      "explanation": "Alzheimer là bệnh lý thần kinh tiến triển mạn tính, là nguyên nhân phổ biến nhất gây sa sút trí tuệ[cite: 10]."
-    },
-    {
-      "id": "GN-01",
-      "group": "Góc nhìn (GN)",
-      "question": "Nếu một người dần quên đi nhiều ký ức, điều đó có làm giảm giá trị và phẩm giá của họ không? Vì sao?",
-      "options": [
-        "Có, vì con người chỉ có giá trị khi còn nhớ rõ mọi thứ.",
-        "Không, phẩm giá con người không phụ thuộc hoàn toàn vào trí nhớ[cite: 14].",
-        "Có, họ sẽ mất toàn bộ quyền công dân.",
-        "Không quan trọng đối với xã hội."
-      ],
-      "answer": "Không, phẩm giá con người không phụ thuộc hoàn toàn vào trí nhớ[cite: 14].",
-      "explanation": "Mỗi cá nhân luôn giữ nguyên vẹn phẩm giá con người bất kể tình trạng trí nhớ hay năng lực nhận thức thay đổi."
-    },
-    {
-      "id": "NC-01",
-      "group": "Nghiên cứu (NC)",
-      "question": "Nhóm bạn được giao nghiên cứu một cơ chế liên quan đến Alzheimer. Hãy chọn một hướng tiếp cận tối ưu[cite: 18].",
-      "options": [
-        "Tập trung khảo sát các mảng bám protein bất thường và đám rối sợi thần kinh.",
-        "Bỏ qua nghiên cứu cơ chế vì không có thực tế.",
-        "Chỉ dựa vào cảm tính cá nhân để kết luận.",
-        "Ngừng nghiên cứu và chờ đợi kết quả ngẫu nhiên."
-      ],
-      "answer": "Tập trung khảo sát các mảng bám protein bất thường và đám rối sợi thần kinh.",
-      "explanation": "Nghiên cứu cơ chế sinh học phân tử (như Beta-amyloid và Tau) là nền tảng cốt lõi trong khoa học thần kinh[cite: 18]."
-    },
-    {
-      "id": "CN-01",
-      "group": "Công nghệ (CN)",
-      "question": "Hãy nêu một ứng dụng tiềm năng của Trí tuệ nhân tạo (AI) trong phân tích dữ liệu nghiên cứu Alzheimer[cite: 20]?",
-      "options": [
-        "AI thay thế hoàn toàn bác sĩ chẩn đoán không cần con người.",
-        "AI hỗ trợ phân tích hình ảnh quét não nhanh chóng, nhưng cần chuyên gia kiểm chứng[cite: 11, 20].",
-        "AI tự động chữa khỏi bệnh cho người mắc.",
-        "AI không có bất kỳ giá trị nào trong y tế."
-      ],
-      "answer": "AI hỗ trợ phân tích hình ảnh quét não nhanh chóng, nhưng cần chuyên gia kiểm chứng[cite: 11, 20].",
-      "explanation": "Công nghệ số và AI đóng vai trò công cụ đắc lực hỗ trợ xử lý dữ liệu lớn, tuy nhiên yếu tố quyết định và chịu trách nhiệm vẫn thuộc về con người[cite: 11, 20]."
-    },
-    {
-      "id": "CS-01",
-      "group": "Chăm sóc (CS)",
-      "question": "Gia đình muốn cải thiện không gian sống để người mắc Alzheimer an toàn hơn. Đâu là hai thay đổi phù hợp[cite: 21]?",
-      "options": [
-        "Thay đổi liên tục vị trí đồ đạc để thử thách trí nhớ.",
-        "Lắp đèn đủ sáng, hạn chế vật cản dễ vấp ngã và dán biển chỉ dẫn dễ hiểu[cite: 12, 21].",
-        "Khóa kín cửa phòng hoàn toàn để cách ly.",
-        "Sử dụng không gian tối để người bệnh nghỉ ngơi."
-      ],
-      "answer": "Lắp đèn đủ sáng, hạn chế vật cản dễ vấp ngã và dán biển chỉ dẫn dễ hiểu[cite: 12, 21].",
-      "explanation": "Không gian thân thiện giúp giảm nguy cơ té ngã và hỗ trợ người bệnh tự định hướng tốt hơn trong sinh hoạt hằng ngày[cite: 12, 21]."
-    },
-    {
-      "id": "TC-01",
-      "group": "Thử thách (TC)",
-      "question": "Thiếu hụt nguồn lực: Nhóm của bạn không đủ tài nguyên để triển khai kế hoạch chăm sóc. Bạn sẽ chọn thế nào[cite: 25]?",
-      "options": [
-        "Thu hẹp kế hoạch hoặc tìm đối tác/người chơi khác cùng chung tay góp sức[cite: 25].",
-        "Bỏ cuộc hoàn toàn và dừng ván chơi.",
-        "Tự ý gian lận tài nguyên.",
-        "Đổ lỗi cho người bệnh."
-      ],
-      "answer": "Thu hẹp kế hoạch hoặc tìm đối tác/người chơi khác cùng chung tay góp sức[cite: 25].",
-      "explanation": "Tinh thần đồng đội và tìm kiếm mạng lưới hỗ trợ là chìa khóa vượt qua khủng hoảng nguồn lực[cite: 25]."
-    },
-    {
-      "id": "TG-01",
-      "group": "Thời gian (TG)",
-      "question": "Giai đoạn nâng cao nhận thức: Cộng đồng địa phương bắt đầu quan tâm nhiều hơn đến Alzheimer[cite: 27].",
-      "options": [
-        "Không có sự thay đổi nào diễn ra.",
-        "Cộng đồng gia tăng sự thấu hiểu; nhận thêm điểm thưởng tiến độ nếu chỉ số Cộng đồng đạt yêu cầu[cite: 27].",
-        "Gây áp lực tiêu cực bắt buộc phạt điểm.",
-        "Làm gián đoạn toàn bộ trò chơi."
-      ],
-      "answer": "Cộng đồng gia tăng sự thấu hiểu; nhận thêm điểm thưởng tiến độ nếu chỉ số Cộng đồng đạt yêu cầu[cite: 27].",
-      "explanation": "Sự kiện thời gian mô phỏng sự chuyển dịch nhận thức của xã hội theo từng giai đoạn phát triển dự án[cite: 27]."
-    },
-    {
-      "id": "HT-01",
-      "group": "Hợp tác (HT)",
-      "question": "Chia sẻ tri thức: Hai người chơi cùng phối hợp đề xuất một hoạt động nâng cao nhận thức cộng đồng[cite: 23].",
-      "options": [
-        "Mỗi người tự làm một mình không cần trao đổi.",
-        "Mỗi bên đóng góp nguồn lực/ý tưởng để xây dựng chiến dịch truyền thông chung[cite: 23].",
-        "Tranh cãi xem ai là người giỏi hơn.",
-        "Hủy bỏ nhiệm vụ hợp tác."
-      ],
-      "answer": "Mỗi bên đóng góp nguồn lực/ý tưởng để xây dựng chiến dịch truyền thông chung[cite: 23].",
-      "explanation": "Hợp tác liên ngành và chia sẻ tri thức giúp tối ưu hóa nguồn lực và lan tỏa thông điệp chính xác đến xã hội[cite: 23]."
-    }
-  ]
+import json
+import os
+import random
+import streamlit as st
+
+# --- CẤU HÌNH TRANG ---
+st.set_page_config(
+    page_title="CHẠM - 64-Cell Interactive Board Game",
+    page_icon="🧠",
+    layout="wide",
+)
+
+# --- CSS TÙY CHỈNH GIAO DIỆN ---
+st.markdown(
+    """
+    <style>
+    .main-header { font-size: 28px; font-weight: 700; color: #18324A; text-align: center; }
+    .sub-header { font-size: 16px; color: #55A88B; text-align: center; font-weight: 600; margin-bottom: 20px; }
+    .card-box { background-color: #F7F6F1; border: 2px solid #3979B9; border-radius: 12px; padding: 20px; margin-top: 15px; }
+    .badge { background-color: #7867B5; color: white; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 13px; }
+    .system-log { background-color: #18324A; color: #F7F6F1; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 12px; }
+    .cell-box { background: #e8f4f8; border: 1px solid #3979B9; padding: 8px; border-radius: 6px; text-align: center; margin-bottom: 5px; font-size: 12px; }
+    </style>
+""",
+    unsafe_allow_html=True,
+)
+
+ROOMS_FILE = "rooms.json"
+
+VALID_SERIAL_CODES = {
+    "CHAM-2026-PRO": "Standard Edition Box",
+    "CHAM-2026-VIP": "Collector Edition Box",
+    "CHV-10S-DEMO": "School Demo License",
+    "GIAAN-2026": "Developer License",
 }
+
+# --- DỮ LIỆU 64 Ô TRÊN BẢN ĐỒ (PHỤ LỤC A) ---
+BOARD_CELLS = {
+    1: {"code": "START", "name": "Khởi đầu hành trình", "group": "START"},
+    2: {"code": "NC", "name": "Khám phá khoa học", "group": "Nghiên cứu (NC)"},
+    3: {"code": "KT", "name": "Giải mã kiến thức", "group": "Kiến thức (KT)"},
+    4: {"code": "NC", "name": "Dữ liệu nghiên cứu", "group": "Nghiên cứu (NC)"},
+    5: {"code": "GN", "name": "Góc nhìn khoa học", "group": "Góc nhìn (GN)"},
+    6: {"code": "TC", "name": "Thử thách nghiên cứu", "group": "Thử thách (TC)"},
+    7: {"code": "TG", "name": "Bước ngoặt nghiên cứu", "group": "Thời gian (TG)"},
+    8: {"code": "HT", "name": "Kết nối nghiên cứu", "group": "Hợp tác (HT)"},
+    9: {"code": "NC", "name": "Kiểm chứng giả thuyết", "group": "Nghiên cứu (NC)"},
+    10: {
+        "code": "HT",
+        "name": "Kết nối nghiên cứu / hợp tác",
+        "group": "Hợp tác (HT)",
+    },
+    11: {"code": "NL", "name": "Nguồn lực nghiên cứu", "group": "Nguồn lực"},
+    12: {"code": "GN", "name": "Góc nhìn người thân", "group": "Góc nhìn (GN)"},
+    13: {"code": "TG", "name": "Biến động nghiên cứu", "group": "Thời gian (TG)"},
+    14: {"code": "TC", "name": "Thử thách", "group": "Thử thách (TC)"},
+    15: {"code": "HT", "name": "Đồng hành khoa học", "group": "Hợp tác (HT)"},
+    16: {"code": "NV", "name": "Mở hướng liên ngành", "group": "Nhiệm vụ chung"},
+    17: {"code": "CN", "name": "Phòng thí nghiệm", "group": "Công nghệ (CN)"},
+    18: {"code": "KT", "name": "Kiến thức công nghệ", "group": "Kiến thức (KT)"},
+    19: {
+        "code": "CN",
+        "name": "Triển khai nền tảng",
+        "group": "Công nghệ (CN)",
+    },
+    20: {"code": "GN", "name": "Góc nhìn cộng đồng", "group": "Góc nhìn (GN)"},
+    21: {"code": "TC", "name": "Trở ngại", "group": "Thử thách (TC)"},
+    22: {"code": "TG", "name": "Biến động công nghệ", "group": "Thời gian (TG)"},
+    23: {"code": "HT", "name": "Hợp tác phát triển", "group": "Hợp tác (HT)"},
+    24: {"code": "CN", "name": "Dữ liệu y tế", "group": "Công nghệ (CN)"},
+    25: {
+        "code": "CN",
+        "name": "Công nghệ hỗ trợ trí nhớ",
+        "group": "Công nghệ (CN)",
+    },
+    26: {"code": "KT", "name": "Kiến thức số", "group": "Kiến thức (KT)"},
+    27: {"code": "NL", "name": "Nguồn lực công nghệ", "group": "Nguồn lực"},
+    28: {"code": "TC", "name": "An toàn thông tin", "group": "Thử thách (TC)"},
+    29: {
+        "code": "GN",
+        "name": "Góc nhìn người sử dụng",
+        "group": "Góc nhìn (GN)",
+    },
+    30: {"code": "TG", "name": "Xu hướng xã hội", "group": "Thời gian (TG)"},
+    31: {"code": "HT", "name": "Liên kết giải pháp", "group": "Hợp tác (HT)"},
+    32: {"code": "NV", "name": "Công nghệ vì con người", "group": "Nhiệm vụ chung"},
+    33: {"code": "CS", "name": "Ngôi nhà thấu hiểu", "group": "Chăm sóc (CS)"},
+    34: {"code": "KT", "name": "Kiến thức chăm sóc", "group": "Kiến thức (KT)"},
+    35: {
+        "code": "GN",
+        "name": "Góc nhìn người chăm sóc",
+        "group": "Góc nhìn (GN)",
+    },
+    36: {"code": "TC", "name": "Tình huống gia đình", "group": "Thử thách (TC)"},
+    37: {"code": "CS", "name": "Chăm sóc tinh thần", "group": "Chăm sóc (CS)"},
+    38: {"code": "TG", "name": "Sự kiện chăm sóc", "group": "Thời gian (TG)"},
+    39: {"code": "HT", "name": "Đồng hành", "group": "Hợp tác (HT)"},
+    40: {
+        "code": "CS",
+        "name": "Không gian thân thiện",
+        "group": "Chăm sóc (CS)",
+    },
+    41: {
+        "code": "KT",
+        "name": "Chăm sóc và thấu hiểu",
+        "group": "Kiến thức (KT)",
+    },
+    42: {"code": "TC", "name": "Tình huống chăm sóc", "group": "Thử thách (TC)"},
+    43: {"code": "NL", "name": "Nguồn lực chăm sóc", "group": "Nguồn lực"},
+    44: {
+        "code": "GN",
+        "name": "Góc nhìn người mắc Alzheimer",
+        "group": "Góc nhìn (GN)",
+    },
+    45: {"code": "CS", "name": "Dịch vụ hỗ trợ", "group": "Chăm sóc (CS)"},
+    46: {"code": "TG", "name": "Nhịp sống cộng đồng", "group": "Thời gian (TG)"},
+    47: {"code": "HT", "name": "Chia sẻ gánh nặng", "group": "Hợp tác (HT)"},
+    48: {
+        "code": "NV",
+        "name": "Không ai phải đi một mình",
+        "group": "Nhiệm vụ chung",
+    },
+    49: {"code": "CĐ", "name": "Lan tỏa nhận thức", "group": "Cộng đồng (CĐ)"},
+    50: {"code": "KT", "name": "Kiến thức cộng đồng", "group": "Kiến thức (KT)"},
+    51: {"code": "GN", "name": "Góc nhìn xã hội", "group": "Góc nhìn (GN)"},
+    52: {"code": "TC", "name": "Thử thách truyền thông", "group": "Thử thách (TC)"},
+    53: {"code": "CĐ", "name": "Giáo dục cộng đồng", "group": "Cộng đồng (CĐ)"},
+    54: {"code": "TG", "name": "Sự kiện cộng đồng", "group": "Thời gian (TG)"},
+    55: {"code": "HT", "name": "Mạng lưới hợp tác", "group": "Hợp tác (HT)"},
+    56: {"code": "CĐ", "name": "Tổ chức xã hội", "group": "Cộng đồng (CĐ)"},
+    57: {
+        "code": "KT",
+        "name": "Đường thông tin xã hội",
+        "group": "Kiến thức (KT)",
+    },
+    58: {"code": "TC", "name": "Thử thách kết nối", "group": "Thử thách (TC)"},
+    59: {"code": "NL", "name": "Nguồn lực cộng đồng", "group": "Nguồn lực"},
+    60: {"code": "GN", "name": "Góc nhìn hợp tác", "group": "Góc nhìn (GN)"},
+    61: {"code": "CĐ", "name": "Hợp tác quốc tế", "group": "Cộng đồng (CĐ)"},
+    62: {"code": "TG", "name": "Chuyển động toàn cầu", "group": "Thời gian (TG)"},
+    63: {"code": "HT", "name": "Xây dựng cộng đồng", "group": "Hợp tác (HT)"},
+    64: {"code": "NV", "name": "Khép vòng hành trình", "group": "Nhiệm vụ chung"},
+}
+
+
+# --- HÀM QUẢN LÝ DỮ LIỆU ---
+def load_rooms():
+  if os.path.exists(ROOMS_FILE):
+    try:
+      with open(ROOMS_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+    except:
+      return {}
+  return {}
+
+
+def save_rooms(rooms):
+  with open(ROOMS_FILE, "w", encoding="utf-8") as f:
+    json.dump(rooms, f, ensure_ascii=False, indent=4)
+
+
+@st.cache_data
+def load_questions_data():
+  try:
+    with open("questions.json", "r", encoding="utf-8") as f:
+      return json.load(f)
+  except:
+    return {
+        "version": "2.2.0",
+        "cards": [{
+            "id": "0",
+            "group": "Mặc định",
+            "question": "Dữ liệu đang tải...",
+            "options": ["A"],
+            "answer": "A",
+            "explanation": "Lỗi",
+        }],
+    }
+
+
+q_data = load_questions_data()
+
+# --- KHỞI TẠO SESSION ---
+if "activated" not in st.session_state:
+  st.session_state.activated = False
+if "serial_used" not in st.session_state:
+  st.session_state.serial_used = ""
+if "joined_room" not in st.session_state:
+  st.session_state.joined_room = None
+if "my_role" not in st.session_state:
+  st.session_state.my_role = None
+if "player_name" not in st.session_state:
+  st.session_state.player_name = ""
+
+
+# ==========================================
+# 1. BƯỚC XÁC THỰC BẢN QUYỀN
+# ==========================================
+if not st.session_state.activated:
+  st.markdown(
+      '<div class="main-header">🧠 CHẠM – Cổng Xác Thực Bản Quyền Board'
+      " Game</div>",
+      unsafe_allow_html=True,
+  )
+  st.markdown(
+      '<div class="sub-header">Nhập mã sê-ri đi kèm hộp board game vật lý để'
+      " kích hoạt hệ thống</div>",
+      unsafe_allow_html=True,
+  )
+
+  col1, col2 = st.columns([2, 1])
+  with col1:
+    input_serial = st.text_input(
+        "Nhập mã sê-ri / mã kích hoạt:", placeholder="Ví dụ: CHAM-2026-PRO"
+    )
+
+    c_btn1, c_btn2 = st.columns(2)
+    with c_btn1:
+      if st.button(
+          "Kích hoạt bản quyền", type="primary", use_container_width=True
+      ):
+        clean_serial = input_serial.strip().upper()
+        if clean_serial in VALID_SERIAL_CODES:
+          st.session_state.activated = True
+          st.session_state.serial_used = clean_serial
+          st.success("Kích hoạt thành công!")
+          st.rerun()
+        else:
+          st.error("Mã sê-ri không hợp lệ. Hãy thử dùng mã Demo bên dưới.")
+    with c_btn2:
+      if st.button("Dùng thử nhanh (Mã Demo)", use_container_width=True):
+        st.session_state.activated = True
+        st.session_state.serial_used = "CHV-10S-DEMO"
+        st.warning("Đang vào chế độ Demo trực tuyến.")
+        st.rerun()
+  st.stop()
+
+
+# ==========================================
+# 2. SẢNH CHỜ & TẠO PHÒNG
+# ==========================================
+if not st.session_state.joined_room:
+  st.markdown(
+      '<div class="main-header">🧠 CHẠM – Hệ Thống Ván Đấu Trực Tuyến</div>',
+      unsafe_allow_html=True,
+  )
+  st.markdown(
+      f'<div class="sub-header">Trạng thái: Đã xác thực (<code>{st.session_state.serial_used}</code>)</div>',
+      unsafe_allow_html=True,
+  )
+
+  col_l1, col_l2 = st.columns(2)
+
+  with col_l1:
+    st.subheader("🏠 Tạo Phòng Ván Đấu Mới")
+    creator_name = st.text_input(
+        "Tên người chơi (Host):", placeholder="Ví dụ: Gia An"
+    )
+    custom_room = st.text_input(
+        "Mã phòng (để trống sẽ tự sinh):", placeholder="Ví dụ: CHAM64"
+    )
+
+    if st.button("Tạo Phòng Mới", type="primary"):
+      if not creator_name.strip():
+        st.error("Vui lòng nhập tên của bạn!")
+      else:
+        rooms = load_rooms()
+        code = (
+            custom_room.strip().upper()
+            if custom_room.strip()
+            else f"CHAM{random.randint(100, 999)}"
+        )
+        rooms[code] = {
+            "host": creator_name,
+            "players": {
+                "Nghiên cứu (Research)": creator_name,
+                "Công nghệ (Tech)": "",
+                "Chăm sóc (Care)": "",
+                "Cộng đồng (Community)": "",
+            },
+            "positions": {
+                "Nghiên cứu (Research)": 1,
+                "Công nghệ (Tech)": 1,
+                "Chăm sóc (Care)": 1,
+                "Cộng đồng (Community)": 1,
+            },
+            "indicators": {
+                "Nghiên cứu": 4,
+                "Công nghệ": 4,
+                "Chăm sóc": 4,
+                "Cộng đồng": 4,
+                "Gánh nặng": 2,
+            },
+            "turn_order": [
+                "Nghiên cứu (Research)",
+                "Công nghệ (Tech)",
+                "Chăm sóc (Care)",
+                "Cộng đồng (Community)",
+            ],
+            "current_turn_idx": 0,
+            "current_card": None,
+            "card_status": "WAITING",
+            "game_started": False,
+            "logs": [f"Phòng {code} khởi tạo thành công bởi {creator_name}."],
+        }
+        save_rooms(rooms)
+        st.session_state.joined_room = code
+        st.session_state.my_role = "Nghiên cứu (Research)"
+        st.session_state.player_name = creator_name
+        st.success("Tạo phòng thành công!")
+        st.rerun()
+
+  with col_l2:
+    st.subheader("🔑 Tham Gia Phòng Đã Tạo")
+    join_name = st.text_input("Tên của bạn:", placeholder="Ví dụ: Minh Quân")
+    join_code = st.text_input(
+        "Mã phòng trực tuyến:", placeholder="Ví dụ: CHAM64"
+    ).upper()
+
+    rooms = load_rooms()
+    available_roles = []
+    if join_code in rooms:
+      available_roles = [
+          role
+          for role, pname in rooms[join_code]["players"].items()
+          if pname == ""
+      ]
+
+    chosen_role = st.selectbox(
+        "Chọn vai trò trụ cột của bạn[cite: 51]:",
+        available_roles if available_roles else ["Nghiên cứu (Research)"],
+    )
+
+    if st.button("Vào Phòng Chơi", type="secondary"):
+      if not join_name.strip():
+        st.error("Vui lòng nhập tên của bạn!")
+      elif join_code not in rooms:
+        st.error("Không tìm thấy mã phòng này!")
+      else:
+        rooms = load_rooms()
+        rooms[join_code]["players"][chosen_role] = join_name
+        rooms[join_code]["logs"].append(
+            f"{join_name} đã gia nhập trụ cột {chosen_role}."
+        )
+        save_rooms(rooms)
+
+        st.session_state.joined_room = join_code
+        st.session_state.my_role = chosen_role
+        st.session_state.player_name = join_name
+        st.success("Vào phòng thành công!")
+        st.rerun()
+
+  st.stop()
+
+
+# ==========================================
+# 3. BÀN CHƠI CHÍNH & MÔ PHỎNG BẢN ĐỒ 64 Ô
+# ==========================================
+code = st.session_state.joined_room
+rooms = load_rooms()
+
+if code not in rooms:
+  st.error("Phòng chơi đã bị đóng!")
+  if st.button("Quay lại sảnh"):
+    st.session_state.joined_room = None
+    st.rerun()
+  st.stop()
+
+room = rooms[code]
+
+c_h1, c_h2, c_h3 = st.columns([3, 1, 1])
+with c_h1:
+  st.markdown(
+      f"### 🧠 Phòng: `{code}` | Trụ cột của bạn: **{st.session_state.my_role}**"
+      f" ({st.session_state.player_name})"
+  )
+with c_h2:
+  if st.button("🔄 Đồng bộ dữ liệu", use_container_width=True):
+    st.rerun()
+with c_h3:
+  if st.button("🚪 Rời phòng", use_container_width=True):
+    st.session_state.joined_room = None
+    st.rerun()
+
+st.markdown("---")
+
+# Sảnh chờ playtest nhanh
+if not room["game_started"]:
+  st.subheader("👥 Sảnh Chờ (Playtest Mode)")
+  for role, pname in room["players"].items():
+    status = f"✅ **{pname}**" if pname else "⏳ *(Trống)*"
+    st.markdown(f"- **{role}**: {status}")
+
+  if st.button(
+      "🚀 BẮT ĐẦU VÁN CHƠI NGAY (PLAYTEST)",
+      type="primary",
+      use_container_width=True,
+  ):
+    room["game_started"] = True
+    for r_key in room["players"]:
+      if not room["players"][r_key]:
+        room["players"][r_key] = f"Bot ({r_key.split()[0]})"
+    room["logs"].append(
+        "Ván chơi đã bắt đầu với bàn đồ 64 ô tự động hóa."
+    )
+    save_rooms(rooms)
+    st.rerun()
+  st.stop()
+
+
+# --- GIAO DIỆN BÀN CHƠI CHÍNH ---
+col_map, col_ctrl = st.columns([1.7, 1])
+
+current_turn_role = room["turn_order"][room["current_turn_idx"]]
+is_my_turn = current_turn_role == st.session_state.my_role
+
+with col_map:
+  st.subheader("🗺️ Trạng Thái Bản Đồ 64 Ô (Phong Cách Cờ Tỷ Phú)")
+
+  # Hiển thị vị trí nhân vật trên bàn cờ
+  pos_cols = st.columns(4)
+  for idx, (role, pos) in enumerate(room["positions"].items()):
+    cell_info = BOARD_CELLS.get(pos, {"name": "Đang di chuyển"})
+    with pos_cols[idx]:
+      st.markdown(
+          f"""
+            <div class="cell-box">
+                <b>{role.split()[0]}</b><br>
+                📍 Ô {pos}/64<br>
+                <span style="color: #2980b9;">{cell_info['name']}</span>
+            </div>
+            """,
+          unsafe_allow_html=True,
+      )
+
+  st.markdown("---")
+  st.subheader("📊 Các Chỉ Số Hệ Sinh Thái (0 - 10)")
+  ind_cols = st.columns(5)
+  for i, (k, val) in enumerate(room["indicators"].items()):
+    with ind_cols[i]:
+      st.metric(label=k, value=f"{val}")
+
+  st.markdown("---")
+  st.subheader("📜 Nhật Ký Hoạt Động Tự Động")
+  log_container = st.container()
+  with log_container:
+    st.markdown('<div class="system-log">', unsafe_allow_html=True)
+    for log in reversed(room["logs"][-8:]):
+      st.text(f">> {log}")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col_ctrl:
+  st.subheader("⚙️ Bảng Điều Phối Lượt Đi")
+  st.info(f"🎯 Lượt hiện tại: **{current_turn_role}")
+
+  if is_my_turn or st.session_state.player_name == room["host"]:
+    if is_my_turn:
+      st.success("✨ Đến lượt nhân vật của bạn!")
+    else:
+      st.warning("⚠️ [Quản trị viên] Bạn đang thao tác quyền Host.")
+
+    # Bước 1: Tung xúc xắc di chuyển trên bàn cờ 64 ô
+    if room["current_card"] is None:
+      if st.button(
+          "🎲 Tung Xúc Xắc (1-6 bước)", type="primary", use_container_width=True
+      ):
+        steps = random.randint(1, 6)
+        old_pos = room["positions"][current_turn_role]
+        new_pos = min(64, old_pos + steps)
+        room["positions"][current_turn_role] = new_pos
+
+        # Lấy thông tin ô mà nhân vật vừa đặt chân đến
+        landed_cell = BOARD_CELLS.get(new_pos, {"group": "Kiến thức (KT)"})
+        cell_group_type = landed_cell["group"]
+
+        # Lọc kho thẻ tương ứng với loại ô trên bàn cờ
+        matching_cards = [
+            c
+            for c in q_data["cards"]
+            if cell_group_type.split()[0] in c["group"]
+        ]
+        if not matching_cards:
+          matching_cards = q_data["cards"]  # Fallback nếu chưa đủ thẻ nhóm đó
+
+        card = random.choice(matching_cards)
+        room["current_card"] = card
+        room["card_status"] = "WAITING"
+
+        room["logs"].append(
+            f"{current_turn_role} tung được {steps} bước, đến ô số {new_pos}"
+            f" ({landed_cell['name']}) -> Kích hoạt thẻ {card['id']}."
+        )
+        save_rooms(rooms)
+        st.rerun()
+
+    # Bước 2: Hiển thị thẻ tự động bốc dựa vào ô đất
+    if room["current_card"] is not None:
+      card = room["current_card"]
+      current_pos = room["positions"][current_turn_role]
+      cell_info = BOARD_CELLS.get(current_pos, {})
+
+      st.markdown('<div class="card-box">', unsafe_allow_html=True)
+      st.markdown(
+          f'<span class="badge">Ô số {current_pos}: {cell_info.get("name", "")}'
+          f" | Thẻ {card['id']}</span>",
+          unsafe_allow_html=True,
+      )
+      st.markdown(f"")
+
+      user_ans = st.radio(
+          "Hệ thống phán quyết trắc nghiệm:",
+          card["options"],
+          key="board_ans_sel",
+      )
+
+      if room["card_status"] == "WAITING":
+        if st.button("Xác nhận & Phán quyết tự động"):
+          room["card_status"] = "ANSWERED"
+          if user_ans == card["answer"]:
+            room["indicators"]["Nghiên cứu"] = min(
+                10, room["indicators"]["Nghiên cứu"] + 1
+            )
+            room["logs"].append(
+                "Phán quyết: CHÍNH XÁC! Tự động cộng +1 điểm Nghiên cứu."
+            )
+          else:
+            room["indicators"]["Gánh nặng"] = min(
+                10, room["indicators"]["Gánh nặng"] + 1
+            )
+            room["logs"].append(
+                "Phán quyết: CHƯA ĐÚNG. Tự động tăng +1 Gánh nặng xã hội."
+            )
+          save_rooms(rooms)
+          st.rerun()
+      else:
+        st.success(f"📌 Đáp án chuẩn: **")
+        st.info(f"💡 Giải thích chuyên môn: {card['explanation']}")
+
+        if st.button(
+            "➡️ Hoàn tất lượt & Chuyển người tiếp theo",
+            type="primary",
+            use_container_width=True,
+        ):
+          room["current_turn_idx"] = (room["current_turn_idx"] + 1) % 4
+          room["current_card"] = None
+          room["card_status"] = "WAITING"
+          room["logs"].append(
+              "Đã kết thúc lượt, chuyển sang người chơi tiếp theo."
+          )
+          save_rooms(rooms)
+          st.rerun()
+
+      st.markdown("</div>", unsafe_allow_html=True)
+
+  else:
+    st.warning(f"Đang chờ lượt đi của **{current_turn_role}**...")

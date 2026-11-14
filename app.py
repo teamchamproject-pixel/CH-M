@@ -5,7 +5,7 @@ import streamlit as st
 
 # --- CẤU HÌNH TRANG ---
 st.set_page_config(
-    page_title="CHẠM - Multiplayer Online Board Game",
+    page_title="CHẠM - Playtest Board Game System",
     page_icon="🧠",
     layout="wide",
 )
@@ -18,6 +18,7 @@ st.markdown(
     .sub-header { font-size: 16px; color: #55A88B; text-align: center; font-weight: 600; margin-bottom: 20px; }
     .card-box { background-color: #F7F6F1; border: 2px solid #3979B9; border-radius: 12px; padding: 20px; margin-top: 15px; }
     .badge { background-color: #7867B5; color: white; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 13px; }
+    .system-log { background-color: #18324A; color: #F7F6F1; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 12px; }
     </style>
 """,
     unsafe_allow_html=True,
@@ -25,8 +26,15 @@ st.markdown(
 
 ROOMS_FILE = "rooms.json"
 
+VALID_SERIAL_CODES = {
+    "CHAM-2026-PRO": "Standard Edition Box",
+    "CHAM-2026-VIP": "Collector Edition Box",
+    "CHV-10S-DEMO": "School Demo License",
+    "GIAAN-2026": "Developer License",
+}
 
-# --- HÀM QUẢN LÝ PHÒNG TRỰC TUYẾN (JSON STORAGE) ---
+
+# --- HÀM QUẢN LÝ DỮ LIỆU PHÒNG TRỰC TUYẾN ---
 def load_rooms():
   if os.path.exists(ROOMS_FILE):
     try:
@@ -49,11 +57,11 @@ def load_questions_data():
       return json.load(f)
   except:
     return {
-        "version": "2.0.0",
+        "version": "2.1.0",
         "cards": [{
             "id": "0",
             "group": "Mặc định",
-            "question": "Chưa tải được dữ liệu câu hỏi",
+            "question": "Đang cập nhật dữ liệu...",
             "options": ["A"],
             "answer": "A",
             "explanation": "Lỗi",
@@ -63,7 +71,11 @@ def load_questions_data():
 
 q_data = load_questions_data()
 
-# --- TRẠNG THÁI NGƯỜI DÙNG TRONG PHIÊN ---
+# --- KHỞI TẠO SESSION STATE ---
+if "activated" not in st.session_state:
+  st.session_state.activated = False
+if "serial_used" not in st.session_state:
+  st.session_state.serial_used = ""
 if "joined_room" not in st.session_state:
   st.session_state.joined_room = None
 if "my_role" not in st.session_state:
@@ -71,102 +83,134 @@ if "my_role" not in st.session_state:
 if "player_name" not in st.session_state:
   st.session_state.player_name = ""
 
-# --- MÀN HÌNH CHƯA VÀO PHÒNG (SẢNH CHỜ & TẠO PHÒNG) ---
+
+# ==========================================
+# BƯỚC 1: XÁC THỰC MÃ KÍCH HOẠT / SỐ SÊ-RI HỘP GAME
+# ==========================================
+if not st.session_state.activated:
+  st.markdown(
+      '<div class="main-header">🧠 CHẠM – Cổng Xác Thực Bản Quyền Board Game</div>',
+      unsafe_allow_html=True,
+  )
+  st.markdown(
+      '<div class="sub-header">Nhập mã sê-ri đi kèm hộp board game vật lý để'
+      " kích hoạt hệ thống</div>",
+      unsafe_allow_html=True,
+  )
+
+  col1, col2 = st.columns([2, 1])
+  with col1:
+    input_serial = st.text_input(
+        "Nhập mã sê-ri / mã kích hoạt:",
+        placeholder="Ví dụ: CHAM-2026-PRO",
+    )
+
+    c_btn1, c_btn2 = st.columns(2)
+    with c_btn1:
+      if st.button(
+          "Kích hoạt bản quyền", type="primary", use_container_width=True
+      ):
+        clean_serial = input_serial.strip().upper()
+        if clean_serial in VALID_SERIAL_CODES:
+          st.session_state.activated = True
+          st.session_state.serial_used = clean_serial
+          st.success("Kích hoạt thành công!")
+          st.rerun()
+        else:
+          st.error("Mã sê-ri không hợp lệ. Hãy thử dùng mã Demo bên dưới.")
+    with c_btn2:
+      if st.button("Dùng thử nhanh (Mã Demo)", use_container_width=True):
+        st.session_state.activated = True
+        st.session_state.serial_used = "CHV-10S-DEMO"
+        st.warning("Đang vào chế độ Demo trực tuyến.")
+        st.rerun()
+  st.stop()
+
+
+# ==========================================
+# BƯỚC 2: SẢNH CHỜ & TẠO PHÒNG
+# ==========================================
 if not st.session_state.joined_room:
   st.markdown(
-      '<div class="main-header">🧠 CHẠM – Online Multiplayer Board Game</div>',
+      '<div class="main-header">🧠 CHẠM – Hệ Thống Ván Đấu Trực Tuyến</div>',
       unsafe_allow_html=True,
   )
   st.markdown(
-      '<div class="sub-header">“Thấu hiểu để kết nối – Kết nối để sẻ'
-      ' chia”</div>',
+      f'<div class="sub-header">Trạng thái: Đã xác thực (<code>{st.session_state.serial_used}</code>)</div>',
       unsafe_allow_html=True,
   )
 
-  col1, col2 = st.columns(2)
+  col_l1, col_l2 = st.columns(2)
 
-  with col1:
-    st.subheader("🏠 Tạo Phòng Mới")
-    st.write(
-        "Tạo phòng chơi mới cho nhóm 4 người tham gia qua mã phòng độc quyền."
-    )
+  with col_l1:
+    st.subheader("🏠 Tạo Phòng Ván Đấu Mới")
     creator_name = st.text_input(
-        "Tên của bạn:", placeholder="Ví dụ: Gia An", key="creator_input"
+        "Tên người chơi (Host):", placeholder="Ví dụ: Gia An"
     )
-    new_room_code = st.text_input(
-        "Mã phòng tùy chọn (hoặc để trống):",
-        placeholder="Ví dụ: CHAM2026",
-        key="code_input",
+    custom_room = st.text_input(
+        "Mã phòng (để trống sẽ tự sinh):", placeholder="Ví dụ: CHAM64"
     )
 
-    if st.button("Tạo Phòng Ngay", type="primary"):
+    if st.button("Tạo Phòng Mới", type="primary"):
       if not creator_name.strip():
         st.error("Vui lòng nhập tên của bạn!")
       else:
         rooms = load_rooms()
         code = (
-            new_room_code.strip().upper()
-            if new_room_code.strip()
+            custom_room.strip().upper()
+            if custom_room.strip()
             else f"CHAM{random.randint(100, 999)}"
         )
-        if code in rooms:
-          st.error(
-              "Mã phòng này đã tồn tại! Vui lòng chọn mã khác hoặc tham gia"
-              " phòng."
-          )
-        else:
-          # Khởi tạo phòng chuẩn theo 4 trụ cột[cite: 35] và bản đồ 64 ô[cite: 1]
-          rooms[code] = {
-              "host": creator_name,
-              "players": {
-                  "Nghiên cứu (Research)": creator_name,
-                  "Công nghệ (Tech)": "",
-                  "Chăm sóc (Care)": "",
-                  "Cộng đồng (Community)": "",
-              },
-              "positions": {
-                  "Nghiên cứu (Research)": 1,
-                  "Công nghệ (Tech)": 1,
-                  "Chăm sóc (Care)": 1,
-                  "Cộng đồng (Community)": 1,
-              },
-              "indicators": {
-                  "Nghiên cứu (NC)": 4,
-                  "Công nghệ (CN)": 4,
-                  "Chăm sóc (CS)": 4,
-                  "Cộng đồng (CĐ)": 4,
-              },  # Khởi đầu ở mốc 4[cite: 8]
-              "turn_order": [
-                  "Nghiên cứu (Research)",
-                  "Công nghệ (Tech)",
-                  "Chăm sóc (Care)",
-                  "Cộng đồng (Community)",
-              ],
-              "current_turn_idx": 0,
-              "current_card": None,
-              "card_revealed": False,
-              "game_started": False,
-              "logs": [f"Phòng {code} đã được tạo bởi {creator_name}."],
-          }
-          save_rooms(rooms)
-          st.session_state.joined_room = code
-          st.session_state.my_role = "Nghiên cứu (Research)"
-          st.session_state.player_name = creator_name
-          st.success(f"Tạo phòng thành công! Đang vào phòng {code}...")
-          st.rerun()
+        rooms[code] = {
+            "host": creator_name,
+            "players": {
+                "Nghiên cứu (Research)": creator_name,
+                "Công nghệ (Technology)": "",
+                "Chăm sóc cộng đồng (Community Care)": "",
+                "Chính sách & Hợp tác (Policy & Partnership)": "",
+            },
+            "positions": {
+                "Nghiên cứu (Research)": 1,
+                "Công nghệ (Technology)": 1,
+                "Chăm sóc cộng đồng (Community Care)": 1,
+                "Chính sách & Hợp tác (Policy & Partnership)": 1,
+            },
+            "indicators": {
+                "Tiến bộ Nghiên cứu (R)": 4,
+                "Năng lực Công nghệ (T)": 4,
+                "Chất lượng Chăm sóc (Q)": 4,
+                "Hợp tác & Tiếp cận (G)": 4,
+                "Gánh nặng xã hội (B)": 2,
+            },
+            "turn_order": [
+                "Nghiên cứu (Research)",
+                "Công nghệ (Technology)",
+                "Chăm sóc cộng đồng (Community Care)",
+                "Chính sách & Hợp tác (Policy & Partnership)",
+            ],
+            "current_turn_idx": 0,
+            "current_card": None,
+            "card_status": "WAITING",
+            "game_started": False,
+            "logs": [f"Phòng {code} khởi tạo thành công bởi {creator_name}."],
+        }
+        save_rooms(rooms)
+        st.session_state.joined_room = code
+        st.session_state.my_role = "Nghiên cứu (Research)"
+        st.session_state.player_name = creator_name
+        st.success("Tạo phòng thành công!")
+        st.rerun()
 
-  with col2:
-    st.subheader("🔑 Tham Gia Phòng")
-    st.write("Nhập mã phòng do bạn bè cung cấp để cùng vào bàn chơi trực tuyến.")
+  with col_l2:
+    st.subheader("🔑 Tham Gia Phòng Đã Tạo")
     join_name = st.text_input("Tên của bạn:", placeholder="Ví dụ: Minh Quân")
     join_code = st.text_input(
-        "Mã phòng:", placeholder="Ví dụ: CHAM2026"
+        "Mã phòng trực tuyến:", placeholder="Ví dụ: CHAM64"
     ).upper()
 
     rooms = load_rooms()
     available_roles = []
     if join_code in rooms:
-      # Lấy các vai trò còn trống
       available_roles = [
           role
           for role, pname in rooms[join_code]["players"].items()
@@ -174,182 +218,221 @@ if not st.session_state.joined_room:
       ]
 
     chosen_role = st.selectbox(
-        "Chọn trụ cột / vai trò của bạn[cite: 35]:", available_roles
+        "Chọn vai trò trụ cột của bạn:",
+        available_roles if available_roles else ["Nghiên cứu (Research)"],
     )
 
-    if st.button("Vào Phòng Chơi"):
+    if st.button("Vào Phòng Chơi", type="secondary"):
       if not join_name.strip():
         st.error("Vui lòng nhập tên của bạn!")
       elif join_code not in rooms:
         st.error("Không tìm thấy mã phòng này!")
-      elif not chosen_role:
-        st.error("Phòng đã đủ người hoặc chưa chọn vai trò!")
       else:
         rooms = load_rooms()
+        # Nếu slot đã đầy, gán đè tên để tiện test nhanh
         rooms[join_code]["players"][chosen_role] = join_name
-        rooms[join_code]["logs"].append(f"{join_name} đã gia nhập vai trò {chosen_role}.")
+        rooms[join_code]["logs"].append(
+            f"{join_name} đã gia nhập trụ cột {chosen_role}."
+        )
         save_rooms(rooms)
 
         st.session_state.joined_room = join_code
         st.session_state.my_role = chosen_role
         st.session_state.player_name = join_name
-        st.success("Tham gia phòng thành công!")
+        st.success("Vào phòng thành công!")
         st.rerun()
 
   st.stop()
 
-# --- GIAO DIỆN TRONG PHÒNG CHƠI (GAME ROOM) ---
+
+# ==========================================
+# BƯỚC 3: BÀN CHƠI CHÍNH (ĐÃ BỎ QUA GIỚI HẠN 4 NGƯỜI)
+# ==========================================
 code = st.session_state.joined_room
 rooms = load_rooms()
 
 if code not in rooms:
-  st.error("Phòng chơi không còn tồn tại hoặc đã bị giải tán!")
-  if st.button("Quay lại sảnh chính"):
+  st.error("Phòng chơi đã bị đóng!")
+  if st.button("Quay lại sảnh"):
     st.session_state.joined_room = None
     st.rerun()
   st.stop()
 
 room = rooms[code]
 
-# Nút cập nhật đồng bộ dữ liệu phòng từ server json
-col_h1, col_h2, col_h3 = st.columns([3, 1, 1])
-with col_h1:
+c_h1, c_h2, c_h3 = st.columns([3, 1, 1])
+with c_h1:
   st.markdown(
-      f"### 🧠 Phòng: `{code}` | Vai trò của bạn: **{st.session_state.my_role}**"
+      f"### 🧠 Phòng: `{code}` | Trụ cột của bạn: **{st.session_state.my_role}**"
       f" ({st.session_state.player_name})"
   )
-with col_h2:
-  if st.button("🔄 Làm mới dữ liệu", use_container_width=True):
+with c_h2:
+  if st.button("🔄 Đồng bộ dữ liệu", use_container_width=True):
     st.rerun()
-with col_h3:
+with c_h3:
   if st.button("🚪 Rời phòng", use_container_width=True):
     st.session_state.joined_room = None
     st.rerun()
 
 st.markdown("---")
 
-# --- SẢNH CHỜ (LOBBY) TRƯỚC KHI BẮT ĐẦU ---
+# 1. Sảnh chờ - Đã nới lỏng điều kiện bắt đầu cho chế độ Playtest
 if not room["game_started"]:
-  st.subheader("👥 Sảnh Chờ Người Chơi (Đủ 4 Trụ Cột để Bắt Đầu)")
+  st.subheader("👥 Danh Sách Trụ Cột (Chế độ Chạy thử)")
+  c_p1, c_p2 = st.columns(2)
 
-  col_p1, col_p2 = st.columns(2)
-  with col_p1:
+  with c_p1:
     for role, pname in room["players"].items():
-      status = f"✅ **{pname}**" if pname else "⏳ *Đang chờ người chơi...*"
+      status = f"✅ **{pname}**" if pname else "⏳ *(Trống - Có thể test độc lập)*"
       st.markdown(f"- **{role}**: {status}")
 
-  with col_p2:
-    st.info(
-        "💡 **Hướng dẫn:** Trò chơi yêu cầu đủ 4 người chơi đảm nhận 4 trụ cột"
-        " (Nghiên cứu, Công nghệ, Chăm sóc, Cộng đồng) để phối hợp xây dựng hệ"
-        " sinh thái ứng phó Alzheimer[cite: 35]."
+  with c_p2:
+    st.success(
+        "🛠️ **Chế độ Playtest:** Đã bỏ qua giới hạn bắt buộc đủ 4 thành viên."
+        " Bạn có thể bấm nút bắt đầu ngay lập tức để chạy thử hệ thống phán"
+        " quyết tự động."
     )
-    # Chỉ Host mới có quyền bấm bắt đầu khi đủ người
     is_host = st.session_state.player_name == room["host"]
-    all_ready = all(p != "" for p in room["players"].values())
 
-    if all_ready:
-      st.success("Đã đủ 4 người chơi trong phòng!")
-      if is_host:
-        if st.button("🚀 BẮT ĐẦU VÁN CHƠI", type="primary", use_container_width=True):
-          room["game_started"] = True
-          room["logs"].append("Ván chơi chính thức bắt đầu!")
-          save_rooms(rooms)
-          st.rerun()
-      else:
-        st.warning("Đang chờ chủ phòng (Host) bấm nút bắt đầu...")
-    else:
-      st.warning("Đang chờ đủ thành viên tham gia vào các ghế trống...")
+    if st.button(
+        "🚀 BẮT ĐẦU CHẠY THỬ (PLAYTEST MODE)",
+        type="primary",
+        use_container_width=True,
+    ):
+      room["game_started"] = True
+      # Tự động điền tên tạm thời vào các ô trống nếu chưa có người chơi để tránh lỗi lượt đi
+      for r_key in room["players"]:
+        if not room["players"][r_key]:
+          room["players"][r_key] = f"Bot ({r_key.split()[0]})"
+      room["logs"].append(
+          "Chế độ chạy thử được kích hoạt bởi "
+          + st.session_state.player_name
+      )
+      save_rooms(rooms)
+      st.rerun()
 
   st.stop()
 
-# --- BẢN ĐỒ VÀ GIAO DIỆN CHƠI CHÍNH ---
-col_board, col_side = st.columns([2, 1])
+
+# 2. Ván chơi chính thức (Playtest)
+col_map, col_ctrl = st.columns([1.6, 1])
 
 current_turn_role = room["turn_order"][room["current_turn_idx"]]
 is_my_turn = current_turn_role == st.session_state.my_role
 
-with col_board:
-  st.subheader("🗺️ Bản Đồ Hành Trình (64 Ô)")
-  
-  # Hiển thị vị trí hiện tại của các quân cờ trên bàn cờ 64 ô[cite: 1]
-  pos_cols = st.columns(4)
+with col_map:
+  st.subheader("🗺️ Bản Đồ & Trạng Thái Hệ Sinh Thái (64 Ô)")
+
+  m_cols = st.columns(2)
   for idx, (role, pos) in enumerate(room["positions"].items()):
-    with pos_cols[idx]:
-      st.metric(label=role.split()[0], value=f"Ô số {pos}/64")
+    with m_cols[idx % 2]:
+      st.metric(
+          label=role.split()[0],
+          value=f"Ô số {pos} / 64",
+          delta="Đang tiến bước",
+      )
 
   st.markdown("---")
-  st.markdown(f"👉 Lượt đi hiện tại thuộc về: **{current_turn_role}**")
+  st.subheader("📊 Các Chỉ Số Hệ Sinh Thái")
+  ind_cols = st.columns(3)
+  keys = list(room["indicators"].keys())
+  for i, k in enumerate(keys):
+    val = room["indicators"][k]
+    with ind_cols[i % 3]:
+      st.metric(label=k, value=f"{val} điểm")
 
-  if is_my_turn:
-    st.success("✨ Đây là lượt đi của bạn!")
-    
-    c_dice1, c_dice2 = st.columns(2)
-    with c_dice1:
-      if st.button("🎲 Tung Xúc Xắc (1 - 6)", type="primary", use_container_width=True):
+  st.markdown("---")
+  st.subheader("📜 Nhật Ký Phán Quyết Tự Động")
+  log_container = st.container()
+  with log_container:
+    st.markdown('<div class="system-log">', unsafe_allow_html=True)
+    for log in reversed(room["logs"][-10:]):
+      st.text(f">> {log}")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col_ctrl:
+  st.subheader("⚙️ Bảng Điều Phối Lượt Đi")
+  st.info(f"🎯 Lượt hiện tại thuộc về: **{current_turn_role}")
+
+  # Cho phép người chơi hiện tại hoặc chủ phòng test linh hoạt trong chế độ chạy thử
+  if is_my_turn or st.session_state.player_name == room["host"]:
+    if is_my_turn:
+      st.success("✨ Đến lượt nhân vật của bạn!")
+    else:
+      st.warning(
+          "⚠️ [Chế độ Quản trị Playtest] Bạn đang đóng vai Host và có quyền"
+          " thay mặt thao tác."
+      )
+
+    # Bước 1: Tung xúc xắc
+    if room["current_card"] is None:
+      if st.button("🎲 Tung Xúc Xắc (1-6 bước)", type="primary", use_container_width=True):
         steps = random.randint(1, 6)
-        old_pos = room["positions"][st.session_state.my_role]
+        old_pos = room["positions"][current_turn_role]
         new_pos = min(64, old_pos + steps)
-        room["positions"][st.session_state.my_role] = new_pos
-        
-        # Rút ngẫu nhiên một thẻ từ kho thẻ
+        room["positions"][current_turn_role] = new_pos
+
         card = random.choice(q_data["cards"])
         room["current_card"] = card
-        room["card_revealed"] = False
-        
+        room["card_status"] = "WAITING"
+
         room["logs"].append(
-            f"{st.session_state.player_name} ({st.session_state.my_role})"
-            f" tung được {steps} bước, di chuyển từ ô {old_pos} đến ô {new_pos} và rút thẻ {card['id']}."
+            f"{current_turn_role} tung được {steps} bước, đến ô {new_pos} và rút"
+            f" thẻ {card['id']}."
         )
         save_rooms(rooms)
         st.rerun()
-  else:
-    st.info(f"Đang chờ **{current_turn_role} thực hiện lượt đi...")
 
-  # Hiển thị thẻ đang rút (nếu có)
-  if room["current_card"]:
-    card = room["current_card"]
-    st.markdown('<div class="card-box">', unsafe_allow_html=True)
-    st.markdown(f'<span class="badge">Mã Thẻ: {card["id"]} | {card["group"]}</span>', unsafe_allow_html=True)
-    st.markdown(f"### {card['question']}")
+    # Bước 2: Phán quyết thẻ tự động
+    if room["current_card"] is not None:
+      card = room["current_card"]
+      st.markdown('<div class="card-box">', unsafe_allow_html=True)
+      st.markdown(
+          f'<span class="badge">Thẻ {card["id"]} | {card["group"]}</span>',
+          unsafe_allow_html=True,
+      )
+      st.markdown(f"")
 
-    ans = st.radio("Lựa chọn / Đáp án:", card["options"], key="game_ans_choice")
+      user_ans = st.radio(
+          "Lựa chọn đáp án:", card["options"], key="playtest_ans_sel"
+      )
 
-    if not room["card_revealed"]:
-      if st.button("Xác nhận đáp án & Tác động tiến độ"):
-        room["card_revealed"] = True
-        # Tác động cộng điểm vào thanh tiến độ tương ứng
-        if ans == card["answer"]:
-          target_track = list(room["indicators"].keys())[room["current_turn_idx"]]
-          room["indicators"][target_track] = min(10, room["indicators"][target_track] + 1)
-          room["logs"].append(f"Trả lời chính xác! Tăng 1 điểm cho thanh {target_track}.")
-        else:
-          room["logs"].append("Trả lời chưa chính xác. Không thay đổi chỉ số.")
-        save_rooms(rooms)
-        st.rerun()
-    else:
-      st.success(f"📌 Đáp án đúng chuẩn: **")
-      st.info(f"💡 Giải thích chuyên môn: {card['explanation']}")
+      if room["card_status"] == "WAITING":
+        if st.button("Xác nhận & Phán quyết tự động"):
+          room["card_status"] = "ANSWERED"
+          if user_ans == card["answer"]:
+            room["indicators"]["Tiến bộ Nghiên cứu (R)"] = min(
+                10, room["indicators"]["Tiến bộ Nghiên cứu (R)"] + 1
+            )
+            room["logs"].append(
+                "Phán quyết tự động: CHÍNH XÁC! Tăng +1 điểm Nghiên cứu."
+            )
+          else:
+            room["indicators"]["Gánh nặng xã hội (B)"] = min(
+                10, room["indicators"]["Gánh nặng xã hội (B)"] + 1
+            )
+            room["logs"].append(
+                "Phán quyết tự động: CHƯA ĐÚNG. Tăng +1 Gánh nặng xã hội."
+            )
+          save_rooms(rooms)
+          st.rerun()
+      else:
+        st.success(f"📌 Đáp án chuẩn: **")
+        st.info(f"💡 Giải thích: {card['explanation']}")
 
-      # Nút kết thúc lượt để chuyển sang người chơi kế tiếp
-      if is_my_turn:
-        if st.button("➡️ Kết thúc lượt & Chuyển người chơi", type="primary"):
+        if st.button(
+            "➡️ Hoàn tất lượt & Chuyển người tiếp theo",
+            type="primary",
+            use_container_width=True,
+        ):
           room["current_turn_idx"] = (room["current_turn_idx"] + 1) % 4
           room["current_card"] = None
-          room["card_revealed"] = False
-          room["logs"].append(f"{st.session_state.player_name} đã kết thúc lượt.")
+          room["card_status"] = "WAITING"
+          room["logs"].append(f"Đã chuyển lượt cho người chơi tiếp theo.")
           save_rooms(rooms)
           st.rerun()
 
-    st.markdown("</div>", unsafe_allow_html=True)
+      st.markdown("</div>", unsafe_allow_html=True)
 
-with col_side:
-  st.subheader("📊 4 Thanh Tiến Độ (0-10)")
-  for track_name, val in room["indicators"].items():
-    st.progress(val / 10.0, text=f"**{track_name}**: {val}/10[cite: 8]")
-
-  st.markdown("---")
-  st.subheader("📜 Nhật Ký Ván Đấu")
-  for log_entry in reversed(room["logs"][-8:]):
-    st.text(f"• {log_entry}")
-      
+  else:
+    st.warning(f"Đang chờ lượt của **{current_turn_role}**...")

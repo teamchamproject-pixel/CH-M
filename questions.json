@@ -1,7 +1,6 @@
 {
   "version": "2.0.0",
   "project_name": "CHẠM - Board Game Alzheimer",
-  "last_updated": "2026-11-13",
   "cards": [
     {
       "id": "KT-01",
@@ -32,7 +31,7 @@
     {
       "id": "NC-01",
       "group": "Nghiên cứu (NC)",
-      "question": "Nhóm bạn được giao nghiên cứu một cơ chế liên quan đến Alzheimer. Hãy chọn một hướng tiếp cận tối ưu và giải thích[cite: 18].",
+      "question": "Nhóm bạn được giao nghiên cứu một cơ chế liên quan đến Alzheimer. Hãy chọn một hướng tiếp cận tối ưu[cite: 18].",
       "options": [
         "Tập trung khảo sát các mảng bám protein bất thường và đám rối sợi thần kinh.",
         "Bỏ qua nghiên cứu cơ chế vì không có thực tế.",
@@ -45,7 +44,7 @@
     {
       "id": "CN-01",
       "group": "Công nghệ (CN)",
-      "question": "Hãy nêu một ứng dụng tiềm năng của Trí tuệ nhân tạo (AI) trong phân tích dữ liệu nghiên cứu Alzheimer và một giới hạn của nó[cite: 20]?",
+      "question": "Hãy nêu một ứng dụng tiềm năng của Trí tuệ nhân tạo (AI) trong phân tích dữ liệu nghiên cứu Alzheimer[cite: 20]?",
       "options": [
         "AI thay thế hoàn toàn bác sĩ chẩn đoán không cần con người.",
         "AI hỗ trợ phân tích hình ảnh quét não nhanh chóng, nhưng cần chuyên gia kiểm chứng[cite: 11, 20].",
@@ -58,7 +57,7 @@
     {
       "id": "CS-01",
       "group": "Chăm sóc - Cộng đồng (CS)",
-      "question": "Gia đình muốn cải thiện không gian sống để người mắc Alzheimer an toàn hơn. Đâu là hai thay đổi phù hợp nhất[cite: 21]?",
+      "question": "Gia đình muốn cải thiện không gian sống để người mắc Alzheimer an toàn hơn. Đâu là hai thay đổi phù hợp[cite: 21]?",
       "options": [
         "Thay đổi liên tục vị trí đồ đạc để thử thách trí nhớ.",
         "Lắp đèn đủ sáng, hạn chế vật cản dễ vấp ngã và dán biển chỉ dẫn dễ hiểu[cite: 12, 21].",
@@ -71,7 +70,7 @@
     {
       "id": "HT-01",
       "group": "Hợp tác (HT)",
-      "question": "Chia sẻ tri thức: Hai người chơi cùng phối hợp đề xuất một hoạt động nâng cao nhận thức cộng đồng về Alzheimer[cite: 23].",
+      "question": "Chia sẻ tri thức: Hai người chơi cùng phối hợp đề xuất một hoạt động nâng cao nhận thức cộng đồng[cite: 23].",
       "options": [
         "Mỗi người tự làm một mình không cần trao đổi.",
         "Mỗi bên đóng góp nguồn lực/ý tưởng để xây dựng chiến dịch truyền thông chung[cite: 23].",
@@ -84,7 +83,7 @@
     {
       "id": "TC-01",
       "group": "Thử thách (TC)",
-      "question": "Thiếu hụt nguồn lực: Nhóm của bạn không đủ tài nguyên để triển khai kế hoạch hỗ trợ chăm sóc. Bạn sẽ chọn phương án nào[cite: 25]?",
+      "question": "Thiếu hụt nguồn lực: Nhóm của bạn không đủ tài nguyên để triển khai kế hoạch chăm sóc. Bạn sẽ chọn thế nào[cite: 25]?",
       "options": [
         "Thu hẹp kế hoạch hoặc tìm đối tác/người chơi khác cùng chung tay góp sức[cite: 25].",
         "Bỏ cuộc hoàn toàn và dừng ván chơi.",
@@ -92,12 +91,12 @@
         "Đổ lỗi cho người bệnh."
       ],
       "answer": "Thu hẹp kế hoạch hoặc tìm đối tác/người chơi khác cùng chung tay góp sức[cite: 25].",
-      "explanation": "Tinh thần đồng đội và tìm kiếm mạng lưới hỗ trợ là chìa khóa vượt qua các khủng hoảng về nguồn lực trong thực tế[cite: 25]."
+      "explanation": "Tinh thần đồng đội và tìm kiếm mạng lưới hỗ trợ là chìa khóa vượt qua khủng hoảng nguồn lực[cite: 25]."
     },
     {
       "id": "TG-01",
       "group": "Thời gian - Sự kiện (TG)",
-      "question": "Giai đoạn nâng cao nhận thức: Cộng đồng địa phương bắt đầu quan tâm nhiều hơn đến các vấn đề về Alzheimer[cite: 27].",
+      "question": "Giai đoạn nâng cao nhận thức: Cộng đồng địa phương bắt đầu quan tâm nhiều hơn đến Alzheimer[cite: 27].",
       "options": [
         "Không có sự thay đổi nào diễn ra.",
         "Cộng đồng gia tăng sự thấu hiểu; nhận thêm điểm thưởng tiến độ nếu chỉ số Cộng đồng đạt yêu cầu[cite: 27].",
@@ -105,7 +104,7 @@
         "Làm gián đoạn toàn bộ trò chơi."
       ],
       "answer": "Cộng đồng gia tăng sự thấu hiểu; nhận thêm điểm thưởng tiến độ nếu chỉ số Cộng đồng đạt yêu cầu[cite: 27].",
-      "explanation": "Sự kiện thời gian mô phỏng sự chuyển dịch nhận thức của xã hội theo từng giai đoạn phát triển của dự án[cite: 27]."
+      "explanation": "Sự kiện thời gian mô phỏng sự chuyển dịch nhận thức của xã hội theo từng giai đoạn phát triển dự án[cite: 27]."
     }
   ]
 }
